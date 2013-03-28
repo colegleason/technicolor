@@ -2,9 +2,16 @@ import simplejson, json
 import sys
 from pprint import pprint
 
+if len(sys.argv) != 4:
+	print 'usage: python text_to_json.py input.txt output.json "episode title"'
+	exit()
+
 colorFile = open(sys.argv[1], 'r')
 
 colorText = colorFile.readlines()
+
+arcDict = {}
+arcDict["title"] = sys.argv[3]
 
 arcList = []
 
@@ -17,14 +24,12 @@ for i in range(0, len(colorText)):
 			if not pair in arcList and not pair[::-1] in arcList:
 				arcList.append(pair)
 
-arcDict = {}
-
 arcDict['arcs'] = arcList
 
 nodeList = []
 
 for i in range(0, len(colorText)):
-	nodeList.append({'name': 'Frame ' + str((i+1)),'color': colorText[i].rstrip('\n ')})
+	nodeList.append({'name': 'Frame ' + str((i+1)),'color': '#'+colorText[i].rstrip('\n ')})
 
 arcDict['nodes'] = nodeList
 
