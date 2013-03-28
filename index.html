@@ -9,10 +9,21 @@
     </head>
     <body>
 	  <h1>Technicolor</h1>
-	  <div id="arc">
-	  </div>	  
-      <script type="text/javascript">
-		renderEpisodeArc("test_data.json");
-      </script>
+	  <div id="contents">
+		<ul class="seriess">
+		  <li>
+			<a href="/arc.html?jsonfile=data/himym/series.json">How I Met Your Mother</a>
+			<ul class="episodes">
+			<li><a href="/arc.html?jsonfile=data/himym/episode1.json">Pilot</a></li> 
+			</ul>
+		</li>
+		  <li>
+			<a href="/arc.html?jsonfile=data/color_test/series.json">Color Test</a>
+			<ul class="episodes">
+			  <li><a href="/arc.html?jsonfile=data/color_test/basic.json">Basic Color Test</a></li> 
+			</ul>
+		  </li>
+		</ul>
+	  </div>
     </body>
 </html>     
