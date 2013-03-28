@@ -11,6 +11,7 @@ ccube = colorcube(128);
 hex_vals = 1:nFrames;
 
 t=cputime;
+tic;
 for i=1:nFrames-3
     im = read(vidObj, i);
     %quantize image
@@ -24,6 +25,7 @@ for i=1:nFrames-3
     most_freq_index(i) = index; 
 end;
 e = cputime-t
+toc
 
 filename = output;
 [fid, message] = fopen(filename, 'wt');

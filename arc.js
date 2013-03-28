@@ -29,7 +29,10 @@ function renderArcGraph(filename) {
 			.append("title")
 			.text(function(d) { return d.name; })
 
-		var arcGroup = chart.append("g");
+		var arcGroup = chart.append("g")
+			.attr("id", "arcspaths");
+		console.log(arcs.length);
+
 		//draw the arcs from one frame to the other
 		arcGroup.selectAll("path")
 			.data(arcs)
