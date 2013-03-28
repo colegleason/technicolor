@@ -1,8 +1,8 @@
 import simplejson, json
-
+import sys
 from pprint import pprint
 
-colorFile = open('/home/yala1/cs467/technicolor/test_colors.txt', 'r')
+colorFile = open(sys.argv[1], 'r')
 
 colorText = colorFile.readlines()
 
@@ -24,16 +24,16 @@ arcDict['arcs'] = arcList
 nodeList = []
 
 for i in range(0, len(colorText)):
-	nodeList.append({'name': 'Episode ' + str((i+1)),'color': colorText[i]})
+	nodeList.append({'name': 'Frame ' + str((i+1)),'color': colorText[i].rstrip('\n ')})
 
-arcDict['nodes'] = arcList
+arcDict['nodes'] = nodeList
 
 #make empty list
 #make a dict with color and name
 #add values for color and name
 
-with open("test_color.json", "w") as file:
-	file.write(json.dumps(arcDict))
+with open(sys.argv[2], 'w') as file:
+	file.write(json.dumps(arcDict, indent = 4, sort_keys = True))
 			
 #testDict = {}
 #testDict['arcs'] = [0,5]
