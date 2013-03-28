@@ -1,20 +1,14 @@
 {
-		"total_nodes":10,
 		"nodes": [
 			{"name": "Episode 1",
-			"link": "",
 			"color": "#ff0000"},
 			{"name": "Episode 1",
-			"link": "",
 			"color": "#ff0000"},
 			{"name": "Episode 1",
-			"link": "",
 			"color": "#ff0000"},
 			{"name": "Episode 1",
-			"link": "",
 			"color": "#ff0000"},
 			{"name": "Episode 1",
-			"link": "",
 			"color": "#ff0000"}				  
 			],
 		"arcs": [
