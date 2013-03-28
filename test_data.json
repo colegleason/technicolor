@@ -1,24 +1,29 @@
 {
-		"total_frames":10,
-		"frames": [
-				  "#ff0000",
-				  "#00ff00",
-				  "#0000ff",
-				  "#ffffff",
-				  "#ffffff",
-				  "#ff0000",
-				  "#00ff00",
-				  "#ff0000",
-				  "#0000ff",
-				  "#ffffff"
-				  ],
+		"total_nodes":10,
+		"nodes": [
+			{"name": "Episode 1",
+			"link": "",
+			"color": "#ff0000"},
+			{"name": "Episode 1",
+			"link": "",
+			"color": "#ff0000"},
+			{"name": "Episode 1",
+			"link": "",
+			"color": "#ff0000"},
+			{"name": "Episode 1",
+			"link": "",
+			"color": "#ff0000"},
+			{"name": "Episode 1",
+			"link": "",
+			"color": "#ff0000"}				  
+			],
 		"arcs": [
-				[0, 5],
-				[0, 7],
-				[1, 6],
-				[3, 4],
-				[3, 9],
-				[4, 9],
-				[2, 8]
-				]
+			[0, 5],
+			[0, 7],
+			[1, 6],
+			[3, 4],
+			[3, 9],
+			[4, 9],
+			[2, 8]
+			]
 }
