@@ -2,14 +2,24 @@
 		"nodes": [
 			{"name": "Episode 1",
 			"color": "#ff0000"},
-			{"name": "Episode 1",
+			{"name": "Episode 2",
+			"color": "#ffff00"},
+			{"name": "Episode 3",
+			"color": "#0000ff"},
+			{"name": "Episode 4",
+			"color": "#ff00ff"},
+			{"name": "Episode 5",
+			"color": "#ff00ff"},			
+			{"name": "Episode 6",
 			"color": "#ff0000"},
-			{"name": "Episode 1",
+			{"name": "Episode 7",
+			"color": "#ffff00"},
+			{"name": "Episode 8",
 			"color": "#ff0000"},
-			{"name": "Episode 1",
-			"color": "#ff0000"},
-			{"name": "Episode 1",
-			"color": "#ff0000"}				  
+			{"name": "Episode 9",
+			"color": "#0000ff"},
+			{"name": "Episode 10",
+			"color": "#ff00ff"}				  
 			],
 
 		"arcs": [

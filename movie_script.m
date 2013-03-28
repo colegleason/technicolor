@@ -1,4 +1,5 @@
-vidObj = VideoReader('color_test.mp4');
+function movie_script(input, output)
+vidObj = VideoReader(input);
 nFrames = vidObj.NumberOfFrames;
 vidHeight = vidObj.Height;
 vidWidth = vidObj.Width;
@@ -10,10 +11,9 @@ ccube = colorcube(128);
 hex_vals = 1:nFrames;
 
 t=cputime;
-for i=1:nFrames
+for i=1:nFrames-3
     im = read(vidObj, i);
     %quantize image
-    
     qim = rgb2ind(im, ccube, 'nodither');
     %get the most frequent index
     [qim_w, qim_h] = size(qim);
@@ -25,14 +25,14 @@ for i=1:nFrames
 end;
 e = cputime-t
 
-filename = 'colortest2.txt';
+filename = output;
 [fid, message] = fopen(filename, 'wt');
 
-for row=1:nFrames
-    index = most_freq_index(row);
-    red_dec = floor(ccube(index,1)*255);
-    green_dec = floor(ccube(index,2)*255);
-    blue_dec = floor(ccube(index,3)*255);
+for row=1:nFrames-3
+    ind = most_freq_index(row);
+    red_dec = floor(ccube(ind,1)*255);
+    green_dec = floor(ccube(ind,2)*255);
+    blue_dec = floor(ccube(ind,3)*255);
     hex_s = strcat(dec2hex(red_dec,2), dec2hex(green_dec,2), dec2hex(blue_dec,2));
     fprintf(fid, '%s \n', hex_s);
 end;

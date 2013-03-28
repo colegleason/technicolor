@@ -1,13 +1,13 @@
 function renderEpisodeArc(filename) {
 	d3.json(filename, function(jsondata) {
-		var frames = jsondata['frames'];
+		var nodes = jsondata['nodes'];
 		var arcs = jsondata['arcs'];
-		var frame_count = frames.length;
 		var width = 1100;
 		var height = 768;
+		var node_width = width / nodes.length;
 		var y = height * 0.8;
 		var x = d3.scale.ordinal()
-			.domain(d3.range(frame_count))
+			.domain(d3.range(nodes.length))
 			.rangeBands([0, width])
 
 		//sets up the basic container for the visualization
@@ -18,14 +18,16 @@ function renderEpisodeArc(filename) {
 			.attr("height", height)
 		
 		chart.selectAll("rect")
-			.data(frames)	
+			.data(nodes)	
 			.enter()
 			.append("rect")
-			.attr("width", width / frame_count)
+			.attr("width", node_width)
 			.attr("height", 15)
 			.attr("x", function(d, i) { return x(i); } )
 			.attr("y", y)
-			.attr("fill", function(d) { return d; })
+			.attr("fill", function(d) { return d.color; })
+			.append("title")
+			.text(function(d) { return d.name; })
 
 		var arcGroup = chart.append("g");
 		//draw the arcs from one frame to the other
@@ -45,16 +47,16 @@ function renderEpisodeArc(filename) {
 					x1 = point_a_x;
 					x2 = point_b_x;
 				}
-				x1 = x1 + width/frame_count/2;
-				x2 = x2 + width/frame_count/2;
+				x1 = x1 + node_width/2;
+				x2 = x2 + node_width/2;
 				//qick calculation for the arc.  The closer the
 				//teams are to each other (on the axis), the 
 				//smaller the radii need to be
 				val = (x2 - x1)/2;
 			    return "M" + x1 + ","+y+" A "+ val +","+ val +" 0 0 1 " + x2 + ","+y
 			})
-			.attr("stroke", function(d) {return frames[d[0]];})
-			.attr("stroke-width", width / frame_count)
+			.attr("stroke", function(d) {return nodes[d[0]].color;})
+			.attr("stroke-width", node_width)
 			.attr("fill","none") 
 	})
 
