@@ -1,4 +1,4 @@
-function renderEpisodeArc(filename) {
+function renderArcGraph(filename) {
 	d3.json(filename, function(jsondata) {
 		var nodes = jsondata['nodes'];
 		var arcs = jsondata['arcs'];
